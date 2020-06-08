@@ -9,7 +9,7 @@ object Template {
       ),
       body(
         bodyContent,
-        script(src := "client-fastopt.js")
+        script(src := "shapes-client-fastopt.js")
       )
     )
   }
