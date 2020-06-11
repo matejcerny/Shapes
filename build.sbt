@@ -5,7 +5,10 @@ Global / scalaVersion := "2.13.2"
 lazy val client = project
   .in(file("client"))
   .enablePlugins(ScalaJSPlugin)
-  .settings(name := "Shapes.Client")
+  .settings(
+    name := "Shapes.Client",
+    scalaJSLinkerConfig ~= { _.withOptimizer(false).withClosureCompilerIfAvailable(false) }
+  )
   .dependsOn(sharedJS)
 
 lazy val server = project

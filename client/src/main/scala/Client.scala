@@ -4,7 +4,7 @@ import org.scalajs.dom.raw.Node
 import scala.scalajs.js.annotation.JSExportTopLevel
 
 @JSExportTopLevel("Client")
-object Client extends DrawMethods {
+object Client extends RenderMethods {
 
   def main(): Unit = ()
 
@@ -18,7 +18,10 @@ object Client extends DrawMethods {
   @JSExportTopLevel("draw")
   def draw(): Unit = {
     clearCanvas()
-    Shapes.Rectangle(300, 300).drawShape()
+
+    Shape(Rectangle(100, 200)).render()
+    Shape(Circle(150)).render()
+    Shape(Square(150)).render()
   }
 
 }
