@@ -20,9 +20,10 @@ trait RenderMethods {
   private def initCtx: CanvasRenderingContext2D =
     canvas.getContext("2d").asInstanceOf[CanvasRenderingContext2D]
 
-  def clearCanvas(): Unit = ctx.clearRect(0, 0, canvas.width, canvas.height)
   private def randomPosition(): Point = Point(between(0, canvas.width), between(0, canvas.height))
   private def randomColor(): String = colors(between(0, colors.size))
+
+  def clearCanvas(): Unit = ctx.clearRect(0, 0, canvas.width, canvas.height)
 
   implicit class RenderShape[T: Render](shape: T) {
     def render(): Unit = implicitly[Render[T]].render(randomPosition(), shape)
